@@ -1,0 +1,15 @@
+{
+  "launch": "/pages/index/index",
+  "steps": [
+    { "action": "waitFor", "selector": ".goods-item" },
+    { "action": "mockWx", "method": "getLocation", "result": { "latitude": 39.9, "longitude": 116.4 } },
+    { "action": "input", "selector": ".search-input", "value": "iphone" },
+    { "action": "tap", "selector": "#search-btn" },
+    { "action": "assertText", "selector": ".result-title", "expect": "搜索结果" },
+    { "action": "assertData", "path": "list.length", "expect": 10 },
+    { "action": "screenshot", "name": "search-result" },
+    { "action": "navigate", "url": "/pages/goods/detail?id=1", "type": "navigateTo" },
+    { "action": "waitFor", "selector": ".detail" },
+    { "action": "screenshot", "name": "detail" }
+  ]
+}
